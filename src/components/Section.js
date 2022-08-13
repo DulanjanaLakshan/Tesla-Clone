@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Section = () => {
+const Section = (props) => {
   return (
-    <Wrap>
+    <Wrap bgImage={props.backgroundImahe}>
       <ItemText>
-        <h1>Model S</h1>
-        <p>Order Online for Touchless Delivery</p>
+        <h1>{props.titel}</h1>
+        <p>{props.description}</p>
       </ItemText>
       <Buttons>
         <ButtonGroup>
-          <LeftButton>Custom Order</LeftButton>
-          <RightButton>Existing Inventory</RightButton>
+          <LeftButton>{props.leftBtnText}</LeftButton>
+          <RightButton>{props.rightBtnText}</RightButton>
         </ButtonGroup>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
@@ -27,11 +27,11 @@ const Wrap=styled.div`
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  background-image:url('/images/model-s.jpg');
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   align-items:center;
+  background-image: ${props => `url("/images/${props.bgImage}")`};
 `
 const ItemText=styled.div`
   padding-top:15vh;
@@ -40,6 +40,9 @@ const ItemText=styled.div`
 const ButtonGroup=styled.div`
   display:flex;
   margin-bottom:30px;
+  @media(max-width:768px){
+    flex-direction:column;
+  }
 `
 const LeftButton=styled.div`
   background-color:rgba(23,26,32,0.8);
@@ -56,7 +59,11 @@ const LeftButton=styled.div`
   cursor:pointer;
   margin:8px;
 `
-const RightButton=styled(LeftButton)``
+const RightButton=styled(LeftButton)`
+  background:white;
+  opacity:0.65;
+  color:black;
+`
 const DownArrow=styled.img`
   height:40px;
   animation:animateDown infinite 1.5s;
