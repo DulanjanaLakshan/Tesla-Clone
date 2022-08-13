@@ -1,3 +1,3 @@
 # Welcome To Tesla Clone..
 
-<img src="/images/tesla.png">
+<img src="public\images\tesla.png">
