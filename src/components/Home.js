@@ -39,6 +39,20 @@ const Home = () => {
         leftBtnText={'Order Now'}
         rightBtnText={'Learn More'}
       />
+      <Section
+        titel={'Solar For New Roofs'}
+        description={'Sola Roof Costs Less Then a New Roof Plus Solar Panels'}
+        backgroundImahe={'solar-roof.jpg'}
+        leftBtnText={'Order Now'}
+        rightBtnText={'Learn More'}
+      />
+      <Section
+        titel={'Accessories'}
+        description={''}
+        backgroundImahe={'accessories.jpg'}
+        leftBtnText={'Shop Now'}
+        rightBtnText={''}
+      />
     </div>
   )
 }

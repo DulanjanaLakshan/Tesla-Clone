@@ -11,7 +11,9 @@ const Section = (props) => {
       <Buttons>
         <ButtonGroup>
           <LeftButton>{props.leftBtnText}</LeftButton>
+          {props.rightBtnText && 
           <RightButton>{props.rightBtnText}</RightButton>
+          }
         </ButtonGroup>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
@@ -63,7 +65,7 @@ const RightButton=styled(LeftButton)`
   background:white;
   opacity:0.65;
   color:black;
-`
+` 
 const DownArrow=styled.img`
   height:40px;
   animation:animateDown infinite 1.5s;
