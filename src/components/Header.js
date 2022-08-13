@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
+    const [burgerStatus, setBougerStates]=useState(false);
     return (
         <Container>
             <a>
@@ -18,21 +19,27 @@ function Header() {
             <RightMenu>
                 <a href="#">Shop</a>
                 <a href="#">Tesla Account</a>
-                <CustomMenu />
+                <CustomMenu onClick={()=>setBougerStates(true)}/>
             </RightMenu>
-            <BurgerNav>
+            <BurgerNav show={burgerStatus}>
                 <CloseWrapper>
-                <CustomClose/>
+                    <CustomClose onClick={()=>setBougerStates(false)} />
                 </CloseWrapper>
                 <li><a href="#">Existing Inventory</a></li>
                 <li><a href="#">Used Inventory</a></li>
                 <li><a href="#">Trade-in</a></li>
-                <li><a href="#">CyberTruck</a></li>
-                <li><a href="#">Readaster</a></li>
-                <li><a href="#">Existing Inventory</a></li>
-                <li><a href="#">Existing Inventory</a></li>
-                <li><a href="#">Existing Inventory</a></li>
-                <li><a href="#">Existing Inventory</a></li>
+                <li><a href="#">Test Drive</a></li>
+                <li><a href="#">Insurance</a></li>
+                <li><a href="#">Cybertruck</a></li>
+                <li><a href="#">Roadster</a></li>
+                <li><a href="#">Semi</a></li>
+                <li><a href="#">Charging</a></li>
+                <li><a href="#">Powerwall</a></li>
+                <li><a href="#">Commercial Energy</a></li>
+                <li><a href="#">Utilities</a></li>
+                <li><a href="#">Find Us</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Investor Relations</a></li>
             </BurgerNav>
         </Container>
     );
@@ -95,7 +102,8 @@ const BurgerNav = styled.div`
     display:flex;
     flex-direction: column;
     text-align:start;
-
+    transform: ${props => props.show ? 'translateX(0)' :'translateX(100%)'};
+    transition:transform 0.5s;
     li{
         padding:15px 0;
         border-bottom:1px solid rgba(0,0,0,.2);
@@ -106,10 +114,10 @@ const BurgerNav = styled.div`
     }
 `
 
-const CustomClose=styled(CloseIcon)`
+const CustomClose = styled(CloseIcon)`
     cursor:pointer;
 `
-const CloseWrapper=styled.div`
+const CloseWrapper = styled.div`
     display:flex;
     justify-content:flex-end;
 `
